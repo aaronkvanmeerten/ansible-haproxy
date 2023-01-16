@@ -4,20 +4,22 @@ galaxy_info:
   description: Installs and configure haproxy
   company: Pheromone, ModCloth
   license: Apache v2
-  min_ansible_version: 1.5
+  min_ansible_version: '1.5'
   platforms:
-  - name: Ubuntu
-    versions:
-    - precise
-    - trusty
-  - name: SmartOS
-  - name: CentOS
-  - name: Debian
-    versions:
-    - wheezy
-    - jessie
-  categories:
-  - networking
-  - system
-  - web
+    - name: Ubuntu
+      versions:
+        - precise
+        - trusty
+        - focal
+        - jammy
+    - name: SmartOS
+    - name: Debian
+      versions:
+        - wheezy
+        - jessie
+        - bullseye
+  galaxy_tags:
+    - networking
+    - system
+    - web
 dependencies: []

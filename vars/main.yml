@@ -1,6 +1,6 @@
 ---
 empty: true
-#haproxy_global:
+# haproxy_global:
 #  chroot:
 #  pidfile:
 #  maxconn:
@@ -21,7 +21,7 @@ empty: true
 #      minlevel:
 #      format:
 #
-#haproxy_defaults:
+# haproxy_defaults:
 #  mode:
 #  log:
 #  options:
@@ -47,7 +47,7 @@ empty: true
 #    expect:
 #    send_state:
 #
-#haproxy_frontends:
+# haproxy_frontends:
 #  - name:
 #    ip:
 #    bind:
@@ -78,7 +78,7 @@ empty: true
 #      - name:
 #        condition:
 #
-#haproxy_backends:
+# haproxy_backends:
 #  - name:
 #    disabled:
 #    description:
@@ -102,13 +102,13 @@ empty: true
 #    options:
 #        - forwardfor
 #
-#haproxy_peers:
+# haproxy_peers:
 # - name:
 #   peers:
 #     - name:
-#	    ip:
+#	    ip: # noqa yaml[comments]
 #       port:
-#haproxy_listen:
+# haproxy_listen:
 #  - name:
 #    bind:
 #    ssl:
@@ -134,8 +134,8 @@ empty: true
 #              - param1
 #    options:
 #        - forwardfor
-#	 monitor_uri:
+#	monitor_uri: # noqa yaml[comments]
 #    stats:
 #        enabled:
 #        uri:
-#        auth: 
+#        auth:

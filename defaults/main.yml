@@ -14,9 +14,17 @@ haproxy_global:
   group: haproxy
   daemon: true
 
-haproxy_repo_codename: "{{ansible_distribution_release if ansible_distribution_release=='jammy' else 'focal'}}"
+haproxy_repo_codename: "{{ ansible_distribution_release if ansible_distribution_release == 'jammy' else 'focal' }}"
 haproxy_repo_version: "{{ haproxy_package_version }}"
 haproxy_package_version: 2.6
+
+haproxy_assemble_types:
+  - frontends.d
+  - backends.d
+  - listen.d
+  - peers.d
+  - userlists.d
+  - compiled
 
 haproxy_frontends: []
 haproxy_backends: []
@@ -31,12 +39,12 @@ haproxy_defaults:
       facility: local1
       level: notice
   timeout:
-      - param: 'connect'
-        value: '5000ms'
-      - param: 'client'
-        value: '50000ms'
-      - param: 'server'
-        value: '50000ms'
+    - param: 'connect'
+      value: '5000ms'
+    - param: 'client'
+      value: '50000ms'
+    - param: 'server'
+      value: '50000ms'
   options:
     - httpclose
     - forwardfor except 127.0.0.0/8
@@ -45,15 +53,15 @@ haproxy_defaults:
     - httplog
     - dontlognull
   errorfile:
-      - code: 400
-        file: /etc/haproxy/errors/400.http
-      - code: 403
-        file: /etc/haproxy/errors/403.http
-      - code: 408
-        file: /etc/haproxy/errors/408.http
-      - code: 500
-        file: /etc/haproxy/errors/500.http
-      - code: 502
-        file: /etc/haproxy/errors/502.http
-      - code: 504
-        file: /etc/haproxy/errors/504.http
+    - code: 400
+      file: /etc/haproxy/errors/400.http
+    - code: 403
+      file: /etc/haproxy/errors/403.http
+    - code: 408
+      file: /etc/haproxy/errors/408.http
+    - code: 500
+      file: /etc/haproxy/errors/500.http
+    - code: 502
+      file: /etc/haproxy/errors/502.http
+    - code: 504
+      file: /etc/haproxy/errors/504.http
