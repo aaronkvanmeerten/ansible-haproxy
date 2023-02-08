@@ -109,6 +109,7 @@
     state: directory
   when: haproxy_global.chroot is defined and haproxy_global.chroot
 
-- name: 'Remove default logrotate config'
-  file: name=/etc/logrotate.d/haproxy state=absent
-
+- name: Remove default logrotate config
+  ansible.builtin.file:
+    name: /etc/logrotate.d/haproxy
+    state: absent
