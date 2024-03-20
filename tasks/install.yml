@@ -113,3 +113,12 @@
   ansible.builtin.file:
     name: /etc/logrotate.d/haproxy
     state: absent
+
+- name: 'Remove haproxy apt repo'
+  become: true
+  become_user: root
+  ansible.builtin.apt_repository:
+    repo: "ppa:vbernat/haproxy-{{ haproxy_repo_version }}"
+    codename: "{{ haproxy_repo_codename }}"
+    state: absent
+  when: ansible_distribution == "Ubuntu"
